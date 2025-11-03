@@ -21,7 +21,8 @@ async function checkBackendHealth() {
             statusDiv.className = 'status healthy';
         }
     } catch (error) {
-        const isGitHubPages = window.location.hostname.includes('github.io');
+        const hostname = window.location.hostname;
+        const isGitHubPages = hostname.endsWith('.github.io') || hostname === 'github.io';
         statusDiv.textContent = isGitHubPages 
             ? '⚠ Backend not configured - Update config.js with your backend URL'
             : '✗ Backend connection failed - Make sure Flask server is running';

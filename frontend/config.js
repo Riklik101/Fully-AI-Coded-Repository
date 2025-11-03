@@ -16,7 +16,7 @@ const CONFIG = {
         // Example: 'https://your-backend.herokuapp.com/api'
         //          'https://your-backend.railway.app/api'
         //          'https://your-backend.render.com/api'
-        if (hostname.includes('github.io')) {
+        if (hostname.endsWith('.github.io') || hostname === 'github.io') {
             // TODO: Set your backend URL here
             const BACKEND_URL = '';  // e.g., 'https://your-backend.herokuapp.com/api'
             
