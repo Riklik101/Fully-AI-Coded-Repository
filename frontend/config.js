@@ -2,14 +2,25 @@
 // This allows the frontend to work in different environments
 
 const CONFIG = {
-    // For local development, use relative paths
-    // For GitHub Pages, you can set this to your deployed backend URL
-    API_BASE_URL: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-        ? '/api'  // Local development with Flask serving the frontend
-        : '/api', // GitHub Pages - update this to your backend URL when deployed
-    
-    // Alternative: Use environment detection
-    // API_BASE_URL: window.location.hostname.includes('github.io')
-    //     ? 'https://your-backend-url.com/api'  // Your deployed backend
-    //     : '/api'  // Local development
+    // Configure the backend API URL based on the environment
+    API_BASE_URL: (() => {
+        const hostname = window.location.hostname;
+        
+        // Local development (Flask serving both frontend and backend)
+        if (hostname === 'localhost' || hostname === '127.0.0.1') {
+            return '/api';
+        }
+        
+        // GitHub Pages deployment
+        // TODO: Replace with your deployed backend URL when available
+        // Example: 'https://your-backend.herokuapp.com/api'
+        //          'https://your-backend.railway.app/api'
+        //          'https://your-backend.render.com/api'
+        if (hostname.includes('github.io')) {
+            return '/api';  // Change this to your backend URL
+        }
+        
+        // Default fallback
+        return '/api';
+    })()
 };

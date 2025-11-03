@@ -124,7 +124,7 @@ The frontend can be deployed to GitHub Pages as a static site:
 
 3. **CORS Configuration**: Ensure your backend has CORS configured to accept requests from your GitHub Pages URL (e.g., `https://username.github.io`)
 
-See `frontend/README.md` for more details on frontend deployment configuration.
+**For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)**
 
 ### License
 
