@@ -1,5 +1,5 @@
-// API Base URL
-const API_BASE_URL = '/api';
+// API Base URL - now configured in config.js
+const API_BASE_URL = CONFIG.API_BASE_URL;
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
