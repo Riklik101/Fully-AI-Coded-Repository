@@ -20,6 +20,11 @@ def index():
     """Serve the frontend"""
     return send_from_directory('frontend', 'index.html')
 
+@app.route('/page2.html')
+def page2():
+    """Serve the second page"""
+    return send_from_directory('frontend', 'page2.html')
+
 @app.route('/api/tasks', methods=['GET'])
 def get_tasks():
     """Get all tasks"""
