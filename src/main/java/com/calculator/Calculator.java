@@ -54,7 +54,7 @@ public class Calculator {
      * @throws ArithmeticException if b is zero
      */
     public double divide(double a, double b) {
-        if (b == 0) {
+        if (Double.compare(b, 0.0) == 0) {
             throw new ArithmeticException("Division by zero is not allowed");
         }
         return a / b;
@@ -90,7 +90,7 @@ public class Calculator {
      * @throws ArithmeticException if value is negative
      */
     public double squareRoot(double value) {
-        if (value < 0) {
+        if (Double.compare(value, 0.0) < 0) {
             throw new ArithmeticException("Cannot calculate square root of a negative number");
         }
         return Math.sqrt(value);
@@ -140,12 +140,5 @@ public class Calculator {
         }
     }
     
-    /**
-     * Clears any previous state (for future stateful implementations).
-     * Currently this is a no-op as the calculator is stateless.
-     */
-    public void clear() {
-        // No-op for stateless calculator
-        // This method is provided for future extensions
-    }
+
 }
