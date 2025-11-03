@@ -1,7 +1,7 @@
 """
 Simple Flask backend application with REST API endpoints
 """
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory, render_template
 from flask_cors import CORS
 import os
 
@@ -83,6 +83,27 @@ def delete_task(task_id):
 def health_check():
     """Health check endpoint"""
     return jsonify({"status": "healthy", "message": "Backend is running!"})
+
+# Error handlers for graceful error catching
+@app.errorhandler(404)
+def not_found_error(error):
+    """Handle 404 errors"""
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    """Handle 500 errors"""
+    return render_template('500.html'), 500
+
+@app.errorhandler(403)
+def forbidden_error(error):
+    """Handle 403 errors"""
+    return render_template('403.html'), 403
+
+@app.errorhandler(400)
+def bad_request_error(error):
+    """Handle 400 errors"""
+    return render_template('400.html'), 400
 
 if __name__ == '__main__':
     # Debug mode is enabled for development - disable in production
