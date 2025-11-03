@@ -80,4 +80,6 @@ def health_check():
     return jsonify({"status": "healthy", "message": "Backend is running!"})
 
 if __name__ == '__main__':
+    # Debug mode is enabled for development - disable in production
+    # For production: app.run(debug=False, host='0.0.0.0', port=5000)
     app.run(debug=True, host='0.0.0.0', port=5000)
