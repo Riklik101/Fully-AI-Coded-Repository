@@ -17,8 +17,8 @@ This is a full-stack Task Manager application demonstrating a Python Flask backe
 ├── app.py                 # Flask backend server with REST API
 ├── requirements.txt       # Python dependencies
 ├── frontend/              # Frontend assets
-│   ├── index.html        # Main HTML page
-│   ├── page2.html        # Second page
+│   ├── index.html        # Main HTML page (Task Manager UI)
+│   ├── page2.html        # Demo page with Lorem Ipsum content
 │   ├── styles.css        # Styling
 │   └── app.js            # Frontend JavaScript logic
 ├── src/                   # Additional source code (if any)
