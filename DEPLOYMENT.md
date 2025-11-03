@@ -107,7 +107,7 @@ CORS(app, resources={
     r"/api/*": {
         "origins": [
             "http://localhost:5000",
-            "https://[username].github.io"
+            "https://your-username.github.io"
         ]
     }
 })
