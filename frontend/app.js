@@ -1,5 +1,5 @@
-// API Base URL
-const API_BASE_URL = '/api';
+// API Base URL - now configured in config.js
+const API_BASE_URL = CONFIG.API_BASE_URL;
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,7 +21,11 @@ async function checkBackendHealth() {
             statusDiv.className = 'status healthy';
         }
     } catch (error) {
-        statusDiv.textContent = '✗ Backend connection failed';
+        const hostname = window.location.hostname;
+        const isGitHubPages = hostname.endsWith('.github.io') || hostname === 'github.io';
+        statusDiv.textContent = isGitHubPages 
+            ? '⚠ Backend not configured - Update config.js with your backend URL'
+            : '✗ Backend connection failed - Make sure Flask server is running';
         statusDiv.className = 'status error';
         console.error('Health check failed:', error);
     }

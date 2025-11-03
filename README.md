@@ -30,7 +30,12 @@ A simple yet complete full-stack web application demonstrating a Python Flask ba
 ├── frontend/
 │   ├── index.html        # Main HTML page
 │   ├── styles.css        # Styling
-│   └── app.js            # Frontend JavaScript logic
+│   ├── app.js            # Frontend JavaScript logic
+│   ├── config.js         # API configuration
+│   └── README.md         # Frontend deployment guide
+├── .github/
+│   └── workflows/
+│       └── pages.yml     # GitHub Pages deployment workflow
 └── README.md             # This file
 ```
 
@@ -105,6 +110,21 @@ For production deployment, make sure to:
 - Use a production WSGI server (e.g., Gunicorn)
 - Implement proper data persistence (database)
 - Add authentication and authorization
+
+### GitHub Pages Deployment
+
+The frontend can be deployed to GitHub Pages as a static site:
+
+1. **Automatic Deployment**: The `.github/workflows/pages.yml` workflow automatically deploys the `frontend/` directory to GitHub Pages when you push to the `main` branch.
+
+2. **Backend Configuration**: 
+   - For local development, the frontend connects to `localhost:5000`
+   - For GitHub Pages, update `frontend/config.js` to point to your deployed backend API URL
+   - The backend will need to be hosted separately (e.g., Heroku, Railway, Render, etc.)
+
+3. **CORS Configuration**: Ensure your backend has CORS configured to accept requests from your GitHub Pages URL (e.g., `https://username.github.io`)
+
+**For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)**
 
 ### License
 
